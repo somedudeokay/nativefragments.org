@@ -215,6 +215,10 @@ h2 {
   background: #eaf2ff;
 }
 
+.fragment-section {
+  background: #f5d7e3;
+}
+
 .agent-section {
   background: var(--ink);
   color: var(--paper);

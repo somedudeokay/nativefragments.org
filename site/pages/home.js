@@ -21,6 +21,22 @@ export const routes = [
   }),
 ];`;
 
+const fragmentExample = `import { fragment, html, route } from "@nativefragments/core/server";
+
+const settingsPanel = fragment("settings-panel", renderSettingsPanel);
+
+export const settingsRoute = route("/settings/profile", {
+  render: () => html\`
+    <a href="/settings/profile"\${settingsPanel.prefetchAttrs("intent")}>
+      Profile
+    </a>
+    <section\${settingsPanel.attrs()}>
+      \${renderSettingsPanel()}
+    </section>
+  \`,
+  fragments: [settingsPanel],
+});`;
+
 const componentExample = `import { shadow, sheet } from "/nativefragments/component.js";
 
 const styles = sheet(\`
@@ -134,6 +150,26 @@ export const homePage = () => html`<section class="hero">
   </div>
 </section>
 
+<section class="landing-section fragment-section">
+  <div>
+    <p class="eyebrow">Declarative fragments</p>
+    <h2>Fast transitions without hiding the page.</h2>
+  </div>
+  <div class="section-copy">
+    <p>
+      Mark the part of the page that can update, then let the route expose the
+      same fragment on the server. The Worker can emit a fragment manifest, and
+      the browser router can prefetch intent, visible, or load-time links.
+    </p>
+    <p>
+      The contract stays in the markup: <code>data-fragment-slot</code> names
+      the target, and <code>data-fragment-prefetch</code> describes when a link
+      should warm the cache.
+    </p>
+    ${codeBlock(fragmentExample)}
+  </div>
+</section>
+
 <section class="landing-section route-section">
   <div>
     <p class="eyebrow">Worker native</p>
@@ -193,6 +229,7 @@ export const homePage = () => html`<section class="hero">
     <ul class="agent-list">
       <li>Route manifests expose the app map.</li>
       <li>Fragment navigation keeps links crawlable.</li>
+      <li>Fragment manifests expose navigable page regions.</li>
       <li>Shadow DOM keeps component styling local.</li>
       <li>Generated docs and skills live inside the package.</li>
     </ul>
