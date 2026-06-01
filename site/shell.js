@@ -1,4 +1,5 @@
 import { html, raw } from "@nativefragments/core/server";
+import { siteHeader } from "./header.js";
 
 const headLinks = ({ meta }) => html`
   <title>${meta.title}</title>
@@ -7,6 +8,9 @@ const headLinks = ({ meta }) => html`
   <link rel="stylesheet" href="/app/styles.css" />
   <script type="module" src="/app/client.js"></script>
 `;
+
+const activePath = (canonical) =>
+  canonical?.startsWith("http") ? new URL(canonical).pathname : (canonical ?? "/");
 
 export const shell = ({ body, meta }) => html`<!doctype html>
 <html lang="en">
@@ -18,15 +22,7 @@ export const shell = ({ body, meta }) => html`<!doctype html>
   </head>
   <body>
     <a class="skip-link" href="#content-slot">Skip to content</a>
-    <nf-site-header>
-      <a href="/">Native Fragments</a>
-      <a href="https://docs.nativefragments.org">Docs</a>
-      <a href="/examples">Examples</a>
-      <a href="/demos">Demos</a>
-      <a href="/manifesto">Manifesto</a>
-      <a href="https://github.com/somedudeokay/nativefragments">GitHub</a>
-      <a href="https://www.npmjs.com/package/@nativefragments/core">npm</a>
-    </nf-site-header>
+    ${siteHeader({ activePath: activePath(meta.canonical) })}
     <main id="content-slot">${raw(body)}</main>
   </body>
 </html>`;
