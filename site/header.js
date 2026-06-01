@@ -43,6 +43,21 @@ const headerStyles = `
     width: 0.7rem;
   }
 
+  .beta {
+    align-self: center;
+    background: #e5484d;
+    border-radius: 999px;
+    color: #fff;
+    font-family: var(--mono, "JetBrains Mono", ui-monospace, SFMono-Regular, monospace);
+    font-size: 0.56rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    margin-left: 0.45rem;
+    padding: 0.18rem 0.4rem;
+    text-transform: uppercase;
+  }
+
   nav,
   .header-links,
   .icon-links,
@@ -158,7 +173,7 @@ const links = [
 ];
 
 const headerHtml = (activePath) => `<header>
-  <a class="brand" href="/">Native Fragments</a>
+  <a class="brand" href="/">Native Fragments<span class="beta">Beta</span></a>
   <div class="header-links">
     <nav aria-label="Primary">
       ${links
