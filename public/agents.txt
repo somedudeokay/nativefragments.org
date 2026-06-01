@@ -1,0 +1,71 @@
+Native Fragments — Get Started (for coding agents)
+==================================================
+
+Native Fragments is a zero-dependency, zero-build web framework. You write
+server-rendered HTML, real links, ES modules, Custom Elements, and Shadow DOM,
+and deploy to Cloudflare Workers. There is no bundler and no JSX.
+
+This file is written for AI coding agents. Work through it top to bottom.
+
+
+1. Scaffold a new app
+---------------------
+  npm create @nativefragments/app@latest my-app
+  cd my-app
+  npm install
+  npm run dev
+
+`npm run dev` starts a local Cloudflare Worker (Wrangler). Open the printed URL.
+
+
+2. Read the bundled skill first
+-------------------------------
+The framework ships an agent skill inside the installed package. Read it before
+writing any code — it encodes the conventions and the file layout:
+
+  node_modules/@nativefragments/core/skills/nativefragments/SKILL.md
+
+It covers the zero-dependency / zero-build rules, the route manifest, the
+document shell, fragment navigation, nested fragment slots, declarative
+prefetching, and keeping component CSS inside Shadow DOM.
+
+
+3. Read the bundled docs and API reference
+------------------------------------------
+  node_modules/@nativefragments/core/docs/      (ships with the package)
+  https://docs.nativefragments.org/llms.txt      (full technical docs, AI index)
+  https://docs.nativefragments.org/reference.md  (API reference)
+
+
+4. Learn the architecture: shell -> fragment -> subfragment
+-----------------------------------------------------------
+- Shell: the full HTML document and layout. It stays mounted across navigations.
+- Fragment: a page region that can be swapped on its own. A fragment request
+  (sent with an x-fragment hint when a link is clicked) returns ONLY that
+  region's HTML + metadata and swaps it in place — no full document reload.
+- Subfragment: a fragment nested inside a fragment. It updates independently,
+  with even smaller scope, driven by a nested route param.
+
+Read more:
+  https://nativefragments.org/manifesto
+  https://docs.nativefragments.org/getting-started.md
+
+
+5. Key files in a generated app
+-------------------------------
+  worker.js                    Cloudflare Worker entrypoint
+  site/routes.js               explicit route manifest (one entry per route)
+  site/shell.js                the full document shell
+  site/pages/*.js              one renderer per route
+  public/app/*.js              browser modules and Custom Elements
+  public/nativefragments/*.js  framework helpers loaded directly by the browser
+
+Convention: one route, one renderer, one component file. Keep it obvious.
+
+
+Links
+-----
+  Docs:     https://docs.nativefragments.org
+  GitHub:   https://github.com/somedudeokay/nativefragments
+  npm:      https://www.npmjs.com/package/@nativefragments/core
+  AI index: https://nativefragments.org/llms.txt

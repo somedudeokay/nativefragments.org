@@ -277,6 +277,18 @@ h1 .accent {
   background: var(--surface);
 }
 
+.agent-action {
+  padding-left: 0.95rem;
+}
+
+.agent-glyph {
+  color: var(--green);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
 /* Proof strip */
 .proof-strip {
   align-items: center;

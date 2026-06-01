@@ -74,16 +74,16 @@ bindText(root.querySelector("[data-count]"), label);`;
 
 export const homePage = () => html`<section class="hero">
   <div class="hero-copy">
-    <p class="eyebrow">Native Fragments</p>
     <h1>The tiny web framework built for <span class="accent">coding agents</span>.</h1>
     <p class="lede">
-      Native Fragments helps agents create fast, maintainable web apps without
-      a compile pipeline. The app stays readable at runtime: server HTML, real
-      links, browser ES modules, Custom Elements, Shadow DOM, and Cloudflare
-      Workers.
+      Native Fragments helps agents create modern, fast and maintainable web
+      applications using zero dependencies and zero build.
     </p>
     <div class="hero-actions">
       <a class="primary-action" href="/docs">Start building <span class="cta-arrow" aria-hidden="true">→</span></a>
+      <a class="secondary-action agent-action" href="/agents.txt">
+        <span class="agent-glyph" aria-hidden="true">&gt;_</span> Get started for agents
+      </a>
       <a class="secondary-action" href="https://docs.nativefragments.org/reference">API reference</a>
     </div>
   </div>
