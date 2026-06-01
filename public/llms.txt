@@ -7,6 +7,9 @@
 - [Technical documentation](https://docs.nativefragments.org/llms.txt)
 - [Getting started](https://docs.nativefragments.org/getting-started.md)
 - [API reference](https://docs.nativefragments.org/reference.md)
+- [API routes](https://docs.nativefragments.org/api-routes.md)
+- [Workers](https://docs.nativefragments.org/workers.md)
+- [Signals](https://docs.nativefragments.org/signals.md)
 
 ## Product Pages
 
@@ -18,5 +21,5 @@
 ## Package
 
 - [npm](https://www.npmjs.com/package/@nativefragments/core)
+- [signals npm](https://www.npmjs.com/package/@nativefragments/signals)
 - [GitHub](https://github.com/somedudeokay/nativefragments)
-

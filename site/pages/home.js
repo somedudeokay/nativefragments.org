@@ -40,6 +40,22 @@ class ThemeSwitch extends HTMLElement {
 
 customElements.define("theme-switch", ThemeSwitch);`;
 
+const apiExample = `import { createCloudflareHandler } from "@nativefragments/core/cloudflare";
+import { Hono } from "hono";
+
+const api = new Hono();
+
+api.get("/api/health", (context) => context.json({ ok: true }));
+
+export default createCloudflareHandler({ api, routes, shell });`;
+
+const signalsExample = `import { bindText, computed, state } from "/nativefragments/signals.js";
+
+const count = state(0);
+const label = computed(() => \`Count \${count.get()}\`);
+
+bindText(root.querySelector("[data-count]"), label);`;
+
 export const homePage = () => html`<section class="hero">
   <div class="hero-copy">
     <p class="eyebrow">Native Fragments</p>
@@ -64,6 +80,7 @@ export const homePage = () => html`<section class="hero">
   <strong>Blazing fast</strong>
   <strong>Built for agents</strong>
   <strong>AI-friendly apps</strong>
+  <strong>Signals when needed</strong>
   <strong>Free to deploy</strong>
 </section>
 
@@ -117,6 +134,21 @@ export const homePage = () => html`<section class="hero">
   </div>
 </section>
 
+<section class="landing-section route-section">
+  <div>
+    <p class="eyebrow">Worker native</p>
+    <h2>APIs belong beside pages.</h2>
+  </div>
+  <div class="section-copy">
+    <p>
+      Mount Hono under <code>/api/*</code> while the same Worker renders pages.
+      The adapter only needs a Web Standards <code>fetch</code> method, so the
+      core package stays small.
+    </p>
+    ${codeBlock(apiExample)}
+  </div>
+</section>
+
 <section class="landing-section component-section">
   <div>
     <p class="eyebrow">Native islands</p>
@@ -129,6 +161,21 @@ export const homePage = () => html`<section class="hero">
       CSS custom properties.
     </p>
     ${codeBlock(componentExample)}
+  </div>
+</section>
+
+<section class="landing-section component-section">
+  <div>
+    <p class="eyebrow">Reactive islands</p>
+    <h2>Signals are optional, not the whole app.</h2>
+  </div>
+  <div class="section-copy">
+    <p>
+      Add signal-powered bindings where an island needs local state. Keep the
+      first payload as server-rendered HTML, then hydrate the parts that need
+      client interaction.
+    </p>
+    ${codeBlock(signalsExample)}
   </div>
 </section>
 
