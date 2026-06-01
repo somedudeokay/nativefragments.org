@@ -74,7 +74,6 @@ const styles = sheet(`
     font-size: 0.88rem;
     font-weight: 500;
     text-decoration: none;
-    transition: color 0.18s var(--ease, ease), background 0.18s var(--ease, ease);
   }
 
   nav a {

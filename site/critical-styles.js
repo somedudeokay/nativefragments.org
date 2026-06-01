@@ -180,7 +180,6 @@ export const criticalStyles = `
     gap: 0.55rem;
     padding: 0.7rem 0.85rem 0.7rem 1.25rem;
     text-decoration: none;
-    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), background 0.3s var(--ease);
   }
 
   .secondary-action {
@@ -198,17 +197,10 @@ export const criticalStyles = `
 
   .primary-action:hover {
     box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
-  }
-
-  .primary-action:active,
-  .secondary-action:active {
-    transform: translateY(0) scale(0.985);
   }
 
   .secondary-action:hover {
     background: var(--surface);
-    transform: translateY(-2px);
   }
 
   .cta-arrow {
@@ -219,41 +211,7 @@ export const criticalStyles = `
     display: inline-flex;
     height: 1.5rem;
     justify-content: center;
-    transition: transform 0.4s var(--ease);
     width: 1.5rem;
-  }
-
-  .primary-action:hover .cta-arrow {
-    transform: translateX(3px) translateY(-1px);
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .js .hero-copy > *,
-    .js .hero > nf-runtime-map {
-      animation: nfRise 0.7s var(--ease) both;
-    }
-
-    .js .hero-copy > *:nth-child(1) { animation-delay: 0.04s; }
-    .js .hero-copy > *:nth-child(2) { animation-delay: 0.1s; }
-    .js .hero-copy > *:nth-child(3) { animation-delay: 0.16s; }
-    .js .hero-copy > *:nth-child(4) { animation-delay: 0.22s; }
-    .js .hero > nf-runtime-map { animation-delay: 0.26s; }
-
-    .js #content-slot > section:not(.hero) {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
-    }
-
-    .js #content-slot > section.is-visible {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  @keyframes nfRise {
-    from { opacity: 0; transform: translateY(18px); }
-    to { opacity: 1; transform: none; }
   }
 
   @media (max-width: 900px) {

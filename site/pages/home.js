@@ -153,7 +153,7 @@ export const homePage = () => html`<section class="hero">
 <section class="landing-section fragment-section">
   <div>
     <p class="eyebrow">Declarative fragments</p>
-    <h2>Fast transitions without hiding the page.</h2>
+    <h2>Fast partial updates without hiding the page.</h2>
   </div>
   <div class="section-copy">
     <p>
@@ -172,12 +172,16 @@ export const homePage = () => html`<section class="hero">
 
 <section class="landing-section route-section">
   <div>
-    <p class="eyebrow">Worker native</p>
-    <h2>APIs belong beside pages.</h2>
+    <p class="eyebrow">Edge native</p>
+    <h2>Built for Cloudflare Workers at the edge.</h2>
   </div>
   <div class="section-copy">
     <p>
-      Mount Hono under <code>/api/*</code> while the same Worker renders pages.
+      Deploy the app as a Cloudflare Worker close to users, with the same
+      runtime rendering pages, fragments, and API routes.
+    </p>
+    <p>
+      Mount Hono under <code>/api/*</code> while the same edge Worker renders pages.
       The adapter only needs a Web Standards <code>fetch</code> method, so the
       core package stays small.
     </p>

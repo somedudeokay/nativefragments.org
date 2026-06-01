@@ -12,12 +12,6 @@ const styles = sheet(`
     padding: 8px;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .shell {
-      animation: nfFloat 7s var(--ease, ease) infinite;
-    }
-  }
-
   .map {
     background: #16181d;
     border: 1px solid rgba(247, 243, 232, 0.08);
@@ -57,7 +51,6 @@ const styles = sheet(`
     display: grid;
     gap: 0.4rem;
     padding: 1rem 1.1rem;
-    transition: border-color 0.4s var(--ease, ease), background 0.4s var(--ease, ease);
   }
 
   .node:hover {
@@ -101,11 +94,6 @@ const styles = sheet(`
     padding: 0.4rem 0.65rem;
     position: absolute;
     right: 1.1rem;
-  }
-
-  @keyframes nfFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
   }
 `);
 

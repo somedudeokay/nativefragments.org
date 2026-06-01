@@ -240,10 +240,6 @@ h1 .accent {
   gap: 0.55rem;
   padding: 0.7rem 0.85rem 0.7rem 1.25rem;
   text-decoration: none;
-  transition:
-    transform 0.4s var(--ease),
-    box-shadow 0.4s var(--ease),
-    background 0.3s var(--ease);
 }
 
 .secondary-action {
@@ -258,12 +254,6 @@ h1 .accent {
 
 .primary-action:hover {
   box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-}
-
-.primary-action:active,
-.secondary-action:active {
-  transform: translateY(0) scale(0.985);
 }
 
 .cta-arrow {
@@ -274,12 +264,7 @@ h1 .accent {
   display: inline-flex;
   height: 1.5rem;
   justify-content: center;
-  transition: transform 0.4s var(--ease);
   width: 1.5rem;
-}
-
-.primary-action:hover .cta-arrow {
-  transform: translateX(3px) translateY(-1px);
 }
 
 .secondary-action {
@@ -290,7 +275,6 @@ h1 .accent {
 
 .secondary-action:hover {
   background: var(--surface);
-  transform: translateY(-2px);
 }
 
 /* Proof strip */
@@ -599,16 +583,11 @@ p code {
   min-height: 3.75rem;
   padding: 1rem 1.2rem;
   text-decoration: none;
-  transition:
-    transform 0.4s var(--ease),
-    box-shadow 0.4s var(--ease),
-    border-color 0.3s var(--ease);
 }
 
 .link-strip a:hover {
   border-color: var(--line-strong);
   box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
 }
 
 .link-strip span,
@@ -644,16 +623,11 @@ p code {
   gap: 1rem;
   grid-template-rows: auto 1fr;
   padding: 1.35rem;
-  transition:
-    transform 0.4s var(--ease),
-    box-shadow 0.4s var(--ease),
-    border-color 0.3s var(--ease);
 }
 
 .docs-grid article:hover {
   border-color: var(--line-strong);
   box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
 }
 
 .docs-grid h2 {
@@ -682,16 +656,11 @@ p code {
   grid-template-rows: auto auto 1fr;
   min-height: 14rem;
   padding: 1.35rem;
-  transition:
-    transform 0.4s var(--ease),
-    box-shadow 0.4s var(--ease),
-    border-color 0.3s var(--ease);
 }
 
 .coming-soon-grid article:hover {
   border-color: var(--line-strong);
   box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
 }
 
 .coming-soon-grid h2 {
@@ -744,7 +713,6 @@ p code {
   gap: 1rem 1.75rem;
   grid-template-columns: 2.5rem minmax(0, 0.5fr) minmax(0, 1fr);
   padding-block: 1.75rem;
-  transition: background 0.3s var(--ease);
 }
 
 .principles li:hover {
@@ -777,22 +745,6 @@ p code {
 /* Not found */
 .not-found {
   padding-block: clamp(3rem, 8vw, 7rem);
-}
-
-/* Scroll reveal (FOUC-safe: only active under .js). */
-@media (prefers-reduced-motion: no-preference) {
-  .js #content-slot > section:not(.hero) {
-    opacity: 0;
-    transform: translateY(28px);
-    transition:
-      opacity 0.8s var(--ease),
-      transform 0.8s var(--ease);
-  }
-
-  .js #content-slot > section.is-visible {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 /* Responsive */
